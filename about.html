@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Danielle Malingue</title>
+<meta name="description" content="About Danielle Malingue — model based in Los Angeles." />
+
+<!-- ============================================================
+     ABOUT PAGE — WHERE TO ADD YOUR COPY:
+     Search the file for the word "COPY" — every spot you need to
+     fill in is marked with a comment AND has visible placeholder
+     text in italic so you can see it on the page until you replace it.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F6F3EC;
+    --bg-deep: #EFEBE2;
+    --ink: #161514;
+    --ink-soft: #6B6660;
+    --rule: #1615141A;
+    --accent: #A8201A;
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --body: 'Hanken Grotesk', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1.75rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    mix-blend-mode: difference;
+    color: #F6F3EC;
+  }
+  .nav-mark {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .nav-links a { transition: opacity .3s ease; }
+  .nav-links a:hover { opacity: 0.5; }
+  .nav-links a.current { opacity: 0.5; }
+
+  /* ---------- Section labels ---------- */
+  .label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--ink-soft);
+  }
+
+  /* ---------- Hero / Statement ---------- */
+  .statement {
+    padding: 10rem 2.5rem 6rem;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .statement-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6rem;
+  }
+  .statement-head .right {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+
+  .statement-body {
+    max-width: 22ch;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .statement-body h1 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 7vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .statement-body h1 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .placeholder {
+    color: var(--ink-soft);
+    font-style: italic;
+    font-weight: 300;
+    opacity: 0.6;
+  }
+
+  .statement-tag {
+    margin-top: 2.5rem;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .statement-foot {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+  .statement-foot .center { text-align: left; }
+  .statement-foot .right { text-align: left; }
+
+  /* ---------- Bio Block ---------- */
+  .bio {
+    padding: 6rem 2.5rem;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+    align-items: start;
+    border-top: 1px solid var(--rule);
+  }
+
+  .bio-image {
+    aspect-ratio: 4/5;
+    background: var(--bg-deep);
+    overflow: hidden;
+    position: sticky;
+    top: 6rem;
+  }
+  .bio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s cubic-bezier(.2,.8,.2,1);
+  }
+  .bio-image:hover img { transform: scale(1.03); }
+
+  .bio-text {
+    padding-top: 2rem;
+  }
+
+  .bio-text h2 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    letter-spacing: -0.02em;
+    margin: 1.5rem 0 2.5rem;
+    line-height: 1.1;
+  }
+
+  .bio-text p {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+    max-width: 56ch;
+    color: var(--ink);
+  }
+
+  .bio-text p.placeholder {
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Details Grid ---------- */
+  .details {
+    padding: 6rem 2.5rem;
+    border-top: 1px solid var(--rule);
+    background: var(--bg-deep);
+  }
+
+  .details-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 6rem;
+  }
+
+  .details-side h3 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .details-side p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    max-width: 32ch;
+  }
+
+  .details-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .detail {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .detail:nth-child(odd) {
+    padding-right: 2rem;
+    border-right: 1px solid var(--rule);
+  }
+  .detail:nth-child(even) {
+    padding-left: 2rem;
+  }
+
+  .detail dt {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+  }
+  .detail dd {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .detail dd.placeholder {
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  /* ---------- Pull quote ---------- */
+  .quote {
+    padding: 10rem 2.5rem;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+  .quote-mark {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 4rem;
+    line-height: 0;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+    display: block;
+  }
+  .quote blockquote {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    max-width: 28ch;
+    margin: 0 auto;
+    font-variation-settings: "opsz" 144;
+  }
+  .quote blockquote em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .quote blockquote.placeholder {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+  .quote cite {
+    display: block;
+    margin-top: 3rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    font-style: normal;
+  }
+
+  /* ---------- CTA / footer ---------- */
+  .cta {
+    padding: 8rem 2.5rem 4rem;
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .cta-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+  .cta-link {
+    display: block;
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    border-top: 1px solid rgba(246,243,236,0.3);
+    padding-top: 2rem;
+    transition: padding-left .4s ease, opacity .3s ease;
+  }
+  .cta-link:hover { padding-left: 1.5rem; }
+  .cta-link em { font-style: italic; }
+  .cta-link span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.75rem;
+    opacity: 0.5;
+    font-style: normal;
+  }
+
+  .footer-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(246,243,236,0.15);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    opacity: 0.5;
+  }
+
+  /* ---------- Live elements ---------- */
+  .nav-clock {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: inherit;
+    opacity: 0.7;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #161514;
+    border-radius: 50%;
+    background: transparent;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate3d(-50%, -50%, 0);
+    mix-blend-mode: difference;
+    transition: width .35s cubic-bezier(.2,.8,.2,1), height .35s cubic-bezier(.2,.8,.2,1), background-color .35s ease, border-color .35s ease;
+    will-change: transform;
+  }
+  .cursor.active {
+    width: 64px;
+    height: 64px;
+    background: #F6F3EC;
+    border-color: #F6F3EC;
+  }
+  .cursor.text {
+    width: 24px;
+    height: 24px;
+    background: #F6F3EC;
+    border-color: #F6F3EC;
+  }
+  @media (hover: none), (max-width: 860px) {
+    .cursor { display: none; }
+    body { cursor: auto !important; }
+  }
+  body.has-cursor { cursor: none; }
+  body.has-cursor a, body.has-cursor button { cursor: none; }
+
+  /* ---------- Reveal ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(.2,.8,.2,1), transform 1s cubic-bezier(.2,.8,.2,1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 860px) {
+    .nav { padding: 1.25rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+
+    .statement { padding: 7rem 1.5rem 4rem; min-height: 80vh; }
+    .statement-head { margin-bottom: 3rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .statement-foot { grid-template-columns: 1fr; gap: 0.5rem; text-align: left; }
+    .statement-foot .center, .statement-foot .right { text-align: left; }
+
+    .bio {
+      padding: 4rem 1.5rem;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .bio-image { position: static; }
+
+    .details { padding: 4rem 1.5rem; }
+    .details-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .details-list { grid-template-columns: 1fr; }
+    .detail:nth-child(odd) { padding-right: 0; border-right: none; }
+    .detail:nth-child(even) { padding-left: 0; }
+
+    .quote { padding: 6rem 1.5rem; }
+
+    .cta { padding: 5rem 1.5rem 3rem; }
+    .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-meta { flex-direction: column; gap: 0.5rem; margin-top: 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========== NAV =========== -->
+<nav class="nav">
+  <a href="index.html" class="nav-mark">Danielle Malingue</a>
+  <div class="nav-links">
+    <span class="nav-clock">LA --:--</span>
+    <a href="index.html#work">Work</a>
+    <a href="about.html" class="current">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- =========== STATEMENT =========== -->
+<section class="statement">
+  <div class="statement-head">
+    <div class="label">About · Vol. 01</div>
+    <div class="right">Los Angeles · CA</div>
+  </div>
+
+  <div class="statement-body">
+    <!-- Headline statement -->
+    <h1>
+      Delivering <em>feelings</em><br>with a look to match.
+    </h1>
+    <p class="statement-tag">On time. On tape. On brand.</p>
+  </div>
+
+  <div class="statement-foot">
+    <span>Cameroonian — American</span>
+    <span class="center">Based · Los Angeles</span>
+    <span class="right">Open to travel</span>
+  </div>
+</section>
+
+<!-- =========== BIO =========== -->
+<section class="bio">
+  <div class="bio-image reveal">
+    <!-- SWAP: replace src with your portrait image -->
+    <img data-swap src="https://picsum.photos/seed/about-portrait/1000/1250?grayscale" alt="Portrait of Danielle Malingue" />
+  </div>
+
+  <div class="bio-text">
+    <div class="label">Bio</div>
+
+    <!-- DRAFT — rewrite in your voice. The intro line and three paragraphs below are starting points, not the final copy. -->
+    <h2>The short version.</h2>
+
+    <p>I'm Cameroonian, raised between Cameroon and the U.S., based in Los Angeles, finishing my last year at USC. I didn't plan on modeling — Nike emailed me on Instagram, and a year later a stranger stopped me at a CVS to say the same thing. Twice was enough to take it seriously.</p>
+
+    <p>I'm easy on set. I take direction fast, I'm on time, and I'd rather get the shot than be interesting about it. Commercial, editorial, lifestyle — I'm built for range, and I bring the same attention whether I'm shooting a campaign or a single product card.</p>
+
+    <p>When I'm not on camera I'm building Addison — a productivity app I designed and shipped, currently live on the App Store. The two practices feed each other: both ask you to hold a clear vision and obsess over the details no one else notices.</p>
+  </div>
+</section>
+
+<!-- =========== DETAILS =========== -->
+<section class="details">
+  <div class="details-inner">
+    <div class="details-side">
+      <h3>The details.</h3>
+      <p>The practical information. Reach out via the contact page for full digitals and measurements.</p>
+    </div>
+
+    <dl class="details-list">
+      <!-- EDIT each <dd> with your real info if any are wrong. -->
+      <div class="detail">
+        <dt>Origin</dt>
+        <dd>Cameroon</dd>
+      </div>
+      <div class="detail">
+        <dt>Based</dt>
+        <dd>Los Angeles</dd>
+      </div>
+      <div class="detail">
+        <dt>Languages</dt>
+        <dd>English, French</dd>
+      </div>
+      <div class="detail">
+        <dt>Travel</dt>
+        <dd>Open · Worldwide</dd>
+      </div>
+      <div class="detail">
+        <dt>Range</dt>
+        <dd>Commercial · Editorial · Lifestyle</dd>
+      </div>
+      <div class="detail">
+        <dt>Available For</dt>
+        <dd>Print · Campaign · Video · UGC</dd>
+      </div>
+      <div class="detail">
+        <dt>Union</dt>
+        <dd>Non-union · SAG-eligible</dd>
+      </div>
+      <div class="detail">
+        <dt>Representation</dt>
+        <dd>Currently seeking</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- =========== PULL QUOTE =========== -->
+<section class="quote">
+  <span class="quote-mark">“</span>
+  <!-- Pull quote -->
+  <blockquote>
+    Found by Nike on Instagram. Found by a stranger at CVS. Apparently the <em>algorithm</em> is everywhere.
+  </blockquote>
+  <cite>— Danielle Malingue</cite>
+</section>
+
+<!-- =========== CTA =========== -->
+<section class="cta">
+  <div class="cta-inner">
+    <a href="index.html#work" class="cta-link">
+      <span>Next →</span>
+      See the <em>work</em>
+    </a>
+    <a href="index.html#contact" class="cta-link">
+      <span>Booking →</span>
+      Get in <em>touch</em>
+    </a>
+  </div>
+  <div class="footer-meta">
+    <span>© 2026 Danielle Malingue</span>
+    <span>Los Angeles · CA</span>
+  </div>
+</section>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ---------- Live LA clock ----------
+  function tickClock() {
+    const now = new Date();
+    const t = now.toLocaleTimeString('en-US', {
+      timeZone: 'America/Los_Angeles',
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    document.querySelectorAll('.nav-clock').forEach(el => el.textContent = `LA ${t}`);
+  }
+  tickClock();
+  setInterval(tickClock, 1000 * 30);
+
+  // ---------- Custom cursor ----------
+  const cursor = document.querySelector('.cursor');
+  const isTouch = matchMedia('(hover: none)').matches || window.innerWidth < 860;
+  if (cursor && !isTouch) {
+    document.body.classList.add('has-cursor');
+    let mx = 0, my = 0, cx = 0, cy = 0;
+    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+    function loop() {
+      cx += (mx - cx) * 0.22;
+      cy += (my - cy) * 0.22;
+      cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    const big = document.querySelectorAll('.bio-image, .cta-link, .nav-mark');
+    big.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+    });
+    const small = document.querySelectorAll('a:not(.cta-link):not(.nav-mark), button');
+    small.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('text'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('text'));
+    });
+  }
+</script>
+
+</body>
+</html>

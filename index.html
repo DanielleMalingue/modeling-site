@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Danielle Malingue</title>
+<meta name="description" content="Danielle Malingue — Model. Los Angeles. Represented work and select campaigns." />
+
+<!-- ============================================================
+     HOW TO SWAP IN YOUR REAL IMAGES:
+     1. Find every image tag below (search for "data-swap").
+     2. Replace the `src` attribute with the path to your photo.
+        e.g. src="images/nike-01.jpg"
+     3. Keep the aspect ratios similar to the placeholders for best layout.
+     4. Recommended sizes: hero 1600x2000, grid 1200x1500, square 1200x1200.
+     5. Put images in an /images folder next to this file.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F6F3EC;
+    --bg-deep: #EFEBE2;
+    --ink: #161514;
+    --ink-soft: #6B6660;
+    --rule: #1615141A;
+    --accent: #A8201A;
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --body: 'Hanken Grotesk', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1.75rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    mix-blend-mode: difference;
+    color: #F6F3EC;
+  }
+
+  .nav-mark {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .nav-links a { transition: opacity .3s ease; }
+  .nav-links a:hover { opacity: 0.5; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100vh;
+    padding: 2.5rem;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+  }
+
+  .hero-meta-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+
+  .hero-title {
+    align-self: center;
+    margin-top: 4rem;
+  }
+
+  .hero-title h1 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(3.5rem, 13vw, 13rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .hero-title .first {
+    display: block;
+  }
+
+  .hero-title .last {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    padding-left: 12vw;
+    margin-top: 0.2em;
+  }
+
+  .hero-meta-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    align-items: end;
+    padding-bottom: 1rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+
+  .hero-meta-bottom .center {
+    text-align: center;
+  }
+
+  .hero-meta-bottom .right {
+    text-align: right;
+  }
+
+  .scroll-indicator {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+
+  .scroll-indicator::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 32px;
+    background: var(--ink);
+    margin: 0.75rem auto 0;
+    animation: scroll-line 2.4s ease-in-out infinite;
+    transform-origin: top;
+  }
+
+  @keyframes scroll-line {
+    0%, 100% { transform: scaleY(0.3); opacity: 0.3; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
+
+  /* ---------- Featured (Nike) ---------- */
+  .featured {
+    padding: 8rem 2.5rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .featured-image {
+    aspect-ratio: 4 / 5;
+    background: #2a1010;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .featured-image:hover img { transform: scale(1.03); }
+
+  .featured-text {
+    padding-left: 2rem;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--ink-soft);
+  }
+
+  .featured-text h2 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .featured-text h2 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .featured-text p {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 36ch;
+    margin-bottom: 2rem;
+  }
+
+  .featured-credits {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    line-height: 2;
+  }
+
+  .featured-credits dt {
+    display: inline-block;
+    color: var(--ink-soft);
+    margin-right: 0.5rem;
+  }
+  .featured-credits dd {
+    display: inline;
+  }
+  .featured-credits .row { display: block; }
+
+  /* ---------- Section heading ---------- */
+  .section-heading {
+    padding: 6rem 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-heading h2 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    letter-spacing: -0.02em;
+  }
+
+  .section-heading .index {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Portfolio Grid ---------- */
+  .grid {
+    padding: 4rem 2.5rem 6rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem 1.5rem;
+  }
+
+  .grid figure {
+    overflow: hidden;
+    background: var(--bg-deep);
+    position: relative;
+  }
+
+  .grid figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s cubic-bezier(.2,.8,.2,1), filter .8s ease;
+  }
+
+  .grid figure:hover img {
+    transform: scale(1.04);
+  }
+
+  .grid figcaption {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #fff;
+    opacity: 0;
+    transition: opacity .5s ease;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  }
+
+  .grid figure:hover figcaption { opacity: 1; }
+
+  /* Editorial asymmetric layout */
+  .g1 { grid-column: 1 / span 7; aspect-ratio: 4/5; }
+  .g2 { grid-column: 8 / span 5; aspect-ratio: 4/5; margin-top: 6rem; }
+  .g3 { grid-column: 2 / span 4; aspect-ratio: 1/1; margin-top: 4rem; }
+  .g4 { grid-column: 7 / span 6; aspect-ratio: 3/4; }
+  .g5 { grid-column: 1 / span 6; aspect-ratio: 3/4; margin-top: 2rem; }
+  .g6 { grid-column: 8 / span 4; aspect-ratio: 4/5; margin-top: 8rem; }
+
+  /* ---------- Index (Stats) ---------- */
+  .index-section {
+    padding: 6rem 2.5rem;
+    border-top: 1px solid var(--rule);
+    background: var(--bg-deep);
+  }
+
+  .index-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .index-side h3 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+
+  .index-side p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    max-width: 32ch;
+    margin-bottom: 1rem;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .stat {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .stat:nth-child(odd) {
+    padding-right: 2rem;
+    border-right: 1px solid var(--rule);
+  }
+  .stat:nth-child(even) {
+    padding-left: 2rem;
+  }
+
+  .stat dt {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+  }
+
+  .stat dd {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  /* ---------- Clients ---------- */
+  .clients {
+    padding: 8rem 2.5rem;
+  }
+
+  .clients-list {
+    max-width: 1000px;
+    margin: 3rem auto 0;
+    list-style: none;
+  }
+
+  .clients-list li {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+    transition: padding-left .4s ease;
+  }
+
+  .clients-list li:hover { padding-left: 1.5rem; }
+
+  .clients-list .num {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+  }
+
+  .clients-list .client {
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+
+  .clients-list .client em {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 0.85em;
+  }
+
+  .clients-list .year {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    padding: 10rem 2.5rem 6rem;
+    background: var(--ink);
+    color: var(--bg);
+    position: relative;
+  }
+
+  .contact-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .contact-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--bg);
+    opacity: 0.5;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--bg);
+    opacity: 0.5;
+  }
+
+  .contact h2 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 4rem;
+    font-variation-settings: "opsz" 144;
+  }
+
+  .contact h2 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .contact-cta {
+    display: inline-block;
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-style: italic;
+    font-weight: 400;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 0.25rem;
+    transition: opacity .3s ease;
+  }
+  .contact-cta:hover { opacity: 0.6; }
+
+  .contact-grid {
+    margin-top: 6rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(246,243,236,0.15);
+  }
+
+  .contact-block h4 {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    opacity: 0.5;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .contact-block p, .contact-block a {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .contact-block a {
+    border-bottom: 1px solid rgba(246,243,236,0.3);
+    transition: border-color .3s ease;
+  }
+  .contact-block a:hover { border-color: var(--bg); }
+
+  .footer-mark {
+    margin-top: 6rem;
+    text-align: center;
+  }
+
+  .footer-mark .name {
+    font-family: var(--display);
+    font-size: clamp(4rem, 18vw, 16rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    opacity: 0.95;
+  }
+
+  .footer-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(246,243,236,0.15);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    opacity: 0.5;
+  }
+
+  /* ---------- Live elements ---------- */
+  .nav-clock {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: inherit;
+    opacity: 0.7;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #161514;
+    border-radius: 50%;
+    background: transparent;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate3d(-50%, -50%, 0);
+    mix-blend-mode: difference;
+    transition: width .35s cubic-bezier(.2,.8,.2,1), height .35s cubic-bezier(.2,.8,.2,1), background-color .35s ease, border-color .35s ease;
+    will-change: transform;
+  }
+  .cursor.active {
+    width: 64px;
+    height: 64px;
+    background: #F6F3EC;
+    border-color: #F6F3EC;
+  }
+  .cursor.text {
+    width: 24px;
+    height: 24px;
+    background: #F6F3EC;
+    border-color: #F6F3EC;
+  }
+  @media (hover: none), (max-width: 860px) {
+    .cursor { display: none; }
+    body { cursor: auto !important; }
+  }
+  body.has-cursor { cursor: none; }
+  body.has-cursor a, body.has-cursor button { cursor: none; }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(.2,.8,.2,1), transform 1s cubic-bezier(.2,.8,.2,1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 860px) {
+    .nav { padding: 1.25rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .nav-links a:nth-child(2) { display: none; }
+
+    .hero { padding: 1.5rem; }
+    .hero-title .last { padding-left: 0; }
+    .hero-meta-bottom {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      text-align: left;
+    }
+    .hero-meta-bottom .center,
+    .hero-meta-bottom .right { text-align: left; }
+
+    .featured {
+      grid-template-columns: 1fr;
+      padding: 5rem 1.5rem 4rem;
+      gap: 2.5rem;
+    }
+    .featured-text { padding-left: 0; }
+
+    .section-heading { padding: 4rem 1.5rem 2rem; }
+    .grid {
+      padding: 2rem 1.5rem 4rem;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .g1, .g2, .g3, .g4, .g5, .g6 {
+      grid-column: 1 / -1;
+      margin-top: 0;
+      aspect-ratio: 4/5;
+    }
+
+    .index-section { padding: 4rem 1.5rem; }
+    .index-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .stats { grid-template-columns: 1fr; }
+    .stat:nth-child(odd) { padding-right: 0; border-right: none; }
+    .stat:nth-child(even) { padding-left: 0; }
+
+    .clients { padding: 5rem 1.5rem; }
+    .clients-list li {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      padding: 1.5rem 0;
+    }
+
+    .contact { padding: 6rem 1.5rem 4rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========== NAV =========== -->
+<nav class="nav">
+  <a href="#top" class="nav-mark">Danielle Malingue</a>
+  <div class="nav-links">
+    <span class="nav-clock">LA --:--</span>
+    <a href="#work">Work</a>
+    <a href="about.html">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- =========== HERO =========== -->
+<section class="hero" id="top">
+  <div class="hero-meta-top">
+    <span>Portfolio · Vol. 01</span>
+  </div>
+
+  <div class="hero-title">
+    <h1>
+      <span class="first reveal">Danielle</span>
+      <span class="last reveal">Malingue</span>
+    </h1>
+  </div>
+
+  <div class="hero-meta-bottom">
+    <span>Los Angeles · CA</span>
+    <span class="center">Available worldwide</span>
+    <span class="right">Updated 2026</span>
+  </div>
+</section>
+
+<!-- =========== FEATURED — NIKE =========== -->
+<section class="featured" id="work">
+  <div class="featured-image reveal">
+    <!-- SWAP: replace src with your Nike After Dark Tour image -->
+    <img data-swap src="https://picsum.photos/seed/nike-feature/1200/1500?grayscale" alt="Nike After Dark Tour campaign" />
+  </div>
+  <div class="featured-text reveal">
+    <div class="eyebrow">Selected · Campaign 001</div>
+    <h2>Nike <em>After Dark</em><br>Tour Campaign</h2>
+    <!-- DRAFT — rewrite in your voice. This is a starting point, not the final copy. -->
+    <p>Nike found me on Instagram. The After Dark Tour was the result — their 2025 women's running series, shot in Los Angeles.</p>
+    <dl class="featured-credits">
+      <div class="row"><dt>Client</dt><dd>Nike, Inc.</dd></div>
+      <div class="row"><dt>Project</dt><dd>After Dark Tour</dd></div>
+      <div class="row"><dt>Year</dt><dd>2025</dd></div>
+      <div class="row"><dt>Use</dt><dd>Web · Social · OOH</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- =========== PORTFOLIO GRID =========== -->
+<div class="section-heading">
+  <h2>Portfolio</h2>
+  <span class="index">— 006 Selects</span>
+</div>
+
+<section class="grid">
+  <figure class="g1 reveal">
+    <!-- SWAP -->
+    <img data-swap src="https://picsum.photos/seed/look-01/1400/1750" alt="" />
+    <figcaption>Editorial · 2025</figcaption>
+  </figure>
+  <figure class="g2 reveal">
+    <!-- SWAP -->
+    <img data-swap src="https://picsum.photos/seed/look-02/1000/1250?grayscale" alt="" />
+    <figcaption>Studio · Digitals</figcaption>
+  </figure>
+  <figure class="g3 reveal">
+    <!-- SWAP -->
+    <img data-swap src="https://picsum.photos/seed/look-03/1000/1000" alt="" />
+    <figcaption>Beauty</figcaption>
+  </figure>
+  <figure class="g4 reveal">
+    <!-- SWAP -->
+    <img data-swap src="https://picsum.photos/seed/look-04/1200/1600" alt="" />
+    <figcaption>Lifestyle</figcaption>
+  </figure>
+  <figure class="g5 reveal">
+    <!-- SWAP -->
+    <img data-swap src="https://picsum.photos/seed/look-05/1200/1600?grayscale" alt="" />
+    <figcaption>Athletic</figcaption>
+  </figure>
+  <figure class="g6 reveal">
+    <!-- SWAP -->
+    <img data-swap src="https://picsum.photos/seed/look-06/1000/1250" alt="" />
+    <figcaption>Polaroid</figcaption>
+  </figure>
+</section>
+
+<!-- =========== INDEX / STATS =========== -->
+<section class="index-section" id="index">
+  <div class="index-grid">
+    <div class="index-side">
+      <h3>Index.</h3>
+      <p>Statistics, sizing, and contact details for booking and casting.</p>
+      <p>Last verified — May 2026.</p>
+    </div>
+    <dl class="stats">
+      <!-- EDIT: replace these placeholder values with your real measurements -->
+      <div class="stat"><dt>Height</dt><dd>5'9"</dd></div>
+      <div class="stat"><dt>Bust</dt><dd>32"</dd></div>
+      <div class="stat"><dt>Waist</dt><dd>24"</dd></div>
+      <div class="stat"><dt>Hips</dt><dd>34"</dd></div>
+      <div class="stat"><dt>Dress</dt><dd>2 / XS</dd></div>
+      <div class="stat"><dt>Shoe</dt><dd>8.5 US</dd></div>
+      <div class="stat"><dt>Eyes</dt><dd>Brown</dd></div>
+      <div class="stat"><dt>Hair</dt><dd>Dark Brown</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- =========== SELECTED CLIENTS =========== -->
+<section class="clients">
+  <div class="section-heading" style="padding-left: 0; padding-right: 0; padding-top: 0;">
+    <h2>Selected Work</h2>
+    <span class="index">— Clients</span>
+  </div>
+  <ol class="clients-list">
+    <li>
+      <span class="num">/ 001</span>
+      <span class="client">Nike <em>— After Dark Tour</em></span>
+      <span class="year">2025</span>
+    </li>
+    <!-- ADD MORE: duplicate the <li> block above and update num / client / year -->
+    <!--
+    <li>
+      <span class="num">/ 002</span>
+      <span class="client">Brand <em>— Project Name</em></span>
+      <span class="year">YYYY</span>
+    </li>
+    -->
+  </ol>
+</section>
+
+<!-- =========== CONTACT =========== -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-eyebrow">Booking · Inquiries</div>
+    <h2>For all<br>booking <em>inquiries</em>—</h2>
+
+    <!-- EDIT: replace email below with your real one -->
+    <a href="mailto:hello@daniellemalingue.com" class="contact-cta">hello@daniellemalingue.com</a>
+
+    <div class="contact-grid">
+      <div class="contact-block">
+        <h4>Direct</h4>
+        <!-- EDIT -->
+        <p><a href="mailto:hello@daniellemalingue.com">hello@daniellemalingue.com</a></p>
+      </div>
+      <div class="contact-block">
+        <h4>Representation</h4>
+        <p>Currently seeking representation<br>for commercial &amp; print.</p>
+      </div>
+      <div class="contact-block">
+        <h4>Social</h4>
+        <!-- EDIT: replace with your IG handle -->
+        <p><a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a></p>
+      </div>
+    </div>
+
+    <div class="footer-mark">
+      <div class="name">Malingue.</div>
+    </div>
+
+    <div class="footer-meta">
+      <span>© 2026 Danielle Malingue</span>
+      <span>Los Angeles · CA</span>
+    </div>
+  </div>
+</section>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<script>
+  // Subtle scroll-reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Stagger hero reveal on load
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hero-title .reveal').forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), 120 + i * 180);
+    });
+  });
+
+  // ---------- Live LA clock ----------
+  function tickClock() {
+    const now = new Date();
+    const t = now.toLocaleTimeString('en-US', {
+      timeZone: 'America/Los_Angeles',
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    document.querySelectorAll('.nav-clock').forEach(el => el.textContent = `LA ${t}`);
+  }
+  tickClock();
+  setInterval(tickClock, 1000 * 30);
+
+  // ---------- Custom cursor ----------
+  const cursor = document.querySelector('.cursor');
+  const isTouch = matchMedia('(hover: none)').matches || window.innerWidth < 860;
+  if (cursor && !isTouch) {
+    document.body.classList.add('has-cursor');
+    let mx = 0, my = 0, cx = 0, cy = 0;
+    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+    function loop() {
+      cx += (mx - cx) * 0.22;
+      cy += (my - cy) * 0.22;
+      cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(loop);
+    }
+    loop();
+
+    const big = document.querySelectorAll('figure, .featured-image, .contact-cta, .nav-mark');
+    big.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+    });
+    const small = document.querySelectorAll('a:not(.contact-cta):not(.nav-mark), button');
+    small.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('text'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('text'));
+    });
+  }
+</script>
+
+</body>
+</html>
