@@ -590,42 +590,7 @@
     font-variant-numeric: tabular-nums;
   }
 
-  .cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    border: 1px solid #161514;
-    border-radius: 50%;
-    background: transparent;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate3d(-50%, -50%, 0);
-    mix-blend-mode: difference;
-    transition: width .35s cubic-bezier(.2,.8,.2,1), height .35s cubic-bezier(.2,.8,.2,1), background-color .35s ease, border-color .35s ease;
-    will-change: transform;
-  }
-  .cursor.active {
-    width: 64px;
-    height: 64px;
-    background: #F6F3EC;
-    border-color: #F6F3EC;
-  }
-  .cursor.text {
-    width: 24px;
-    height: 24px;
-    background: #F6F3EC;
-    border-color: #F6F3EC;
-  }
-  @media (hover: none), (max-width: 860px) {
-    .cursor { display: none; }
-    body { cursor: auto !important; }
-  }
-  body.has-cursor { cursor: none; }
-  body.has-cursor a, body.has-cursor button { cursor: none; }
-
-  /* ---------- Reveal animation ---------- */
+/* ---------- Reveal animation ---------- */
   .reveal {
     opacity: 0;
     transform: translateY(20px);
