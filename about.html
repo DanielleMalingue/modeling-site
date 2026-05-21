@@ -117,7 +117,7 @@
   }
 
   .statement-body {
-    max-width: 22ch;
+    max-width: 32ch;
     text-align: center;
     margin: 0 auto;
   }
@@ -125,8 +125,8 @@
   .statement-body h1 {
     font-family: var(--display);
     font-weight: 300;
-    font-size: clamp(2.5rem, 7vw, 7rem);
-    line-height: 1;
+    font-size: clamp(2rem, 5vw, 5rem);
+    line-height: 1.05;
     letter-spacing: -0.03em;
     font-variation-settings: "opsz" 144;
   }
@@ -459,7 +459,7 @@
   <div class="statement-body">
     <!-- Headline statement -->
     <h1>
-      Delivering <em>feelings</em><br>with a look to match.
+      Delivering <em>feelings</em> with a look to match.
     </h1>
     <p class="statement-tag">On time. On tape. On brand.</p>
   </div>
@@ -566,8 +566,6 @@
   </div>
 </section>
 
-<div class="cursor" aria-hidden="true"></div>
-
 <script>
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
@@ -593,32 +591,6 @@
   tickClock();
   setInterval(tickClock, 1000 * 30);
 
-  // ---------- Custom cursor ----------
-  const cursor = document.querySelector('.cursor');
-  const isTouch = matchMedia('(hover: none)').matches || window.innerWidth < 860;
-  if (cursor && !isTouch) {
-    document.body.classList.add('has-cursor');
-    let mx = 0, my = 0, cx = 0, cy = 0;
-    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
-    function loop() {
-      cx += (mx - cx) * 0.22;
-      cy += (my - cy) * 0.22;
-      cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(loop);
-    }
-    loop();
-
-    const big = document.querySelectorAll('.bio-image, .cta-link, .nav-mark');
-    big.forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-    });
-    const small = document.querySelectorAll('a:not(.cta-link):not(.nav-mark), button');
-    small.forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('text'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('text'));
-    });
-  }
 </script>
 
 </body>

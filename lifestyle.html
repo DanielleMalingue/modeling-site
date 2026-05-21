@@ -418,31 +418,6 @@
   tickClock();
   setInterval(tickClock, 1000 * 30);
 
-  // Custom cursor
-  const cursor = document.querySelector('.cursor');
-  const isTouch = matchMedia('(hover: none)').matches || window.innerWidth < 860;
-  if (cursor && !isTouch) {
-    document.body.classList.add('has-cursor');
-    let mx = 0, my = 0, cx = 0, cy = 0;
-    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
-    function loop() {
-      cx += (mx - cx) * 0.22;
-      cy += (my - cy) * 0.22;
-      cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(loop);
-    }
-    loop();
-    const big = document.querySelectorAll('figure, .nav-mark');
-    big.forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-    });
-    const small = document.querySelectorAll('a:not(.nav-mark), button');
-    small.forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('text'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('text'));
-    });
-  }
 </script>
 
 </body>
