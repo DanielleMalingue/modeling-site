@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lifestyle — Danielle Malingue</title>
+<meta name="description" content="Lifestyle and range references for Danielle Malingue — model based in Los Angeles. Swim, streetwear, and lifestyle work." />
+
+<!-- ============================================================
+     LIFESTYLE PAGE — danielle malingue modeling site
+
+     This is the secondary portfolio page that shows commercial range,
+     organized into categories. Distinct from the main editorial portfolio
+     on the homepage. Casting directors come here to see "what else can
+     this person shoot — swim, streetwear, lifestyle, etc."
+
+     HOW TO ADD A NEW CATEGORY:
+     Duplicate any <section class="category"> block, change the number,
+     the label, the heading, and add new figures inside the .lifestyle-grid.
+
+     HOW TO ADD A NEW IMAGE TO AN EXISTING CATEGORY:
+     Inside the right <div class="lifestyle-grid">, duplicate any <figure>
+     block and swap the src + figcaption.
+
+     IMAGE NAMING:
+     Use danielle-malingue-[category]-[location].webp for SEO
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F6F3EC;
+    --bg-deep: #EFEBE2;
+    --ink: #161514;
+    --ink-soft: #6B6660;
+    --rule: #1615141A;
+    --accent: #A8201A;
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --body: 'Hanken Grotesk', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1.75rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    mix-blend-mode: difference;
+    color: #F6F3EC;
+  }
+  .nav-mark {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    align-items: center;
+  }
+  .nav-links a { transition: opacity .3s ease; }
+  .nav-links a:hover { opacity: 0.5; }
+  .nav-links a.current { opacity: 0.5; }
+  .nav-clock {
+    font-variant-numeric: tabular-nums;
+    opacity: 0.7;
+  }
+
+  /* ---------- Live elements ---------- */
+  .cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 10px; height: 10px;
+    border: 1px solid #161514;
+    border-radius: 50%;
+    background: transparent;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate3d(-50%, -50%, 0);
+    mix-blend-mode: difference;
+    transition: width .35s cubic-bezier(.2,.8,.2,1), height .35s cubic-bezier(.2,.8,.2,1), background-color .35s ease, border-color .35s ease;
+    will-change: transform;
+  }
+  .cursor.active {
+    width: 64px; height: 64px;
+    background: #F6F3EC;
+    border-color: #F6F3EC;
+  }
+  .cursor.text {
+    width: 24px; height: 24px;
+    background: #F6F3EC;
+    border-color: #F6F3EC;
+  }
+  @media (hover: none), (max-width: 860px) {
+    .cursor { display: none; }
+    body { cursor: auto !important; }
+  }
+  body.has-cursor { cursor: none; }
+  body.has-cursor a, body.has-cursor button { cursor: none; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 9rem 2.5rem 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--ink-soft);
+  }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    font-variation-settings: "opsz" 144;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero-intro {
+    font-family: var(--body);
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+
+  /* ---------- Category section ---------- */
+  .category {
+    padding: 4rem 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top: 1px solid var(--rule);
+  }
+
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .category-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+  }
+
+  .category-title {
+    font-family: var(--display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .category-meta {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Lifestyle Grid ---------- */
+  .lifestyle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 1.5rem;
+  }
+
+  .lifestyle-grid figure {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .lifestyle-grid .image-wrap {
+    aspect-ratio: 4 / 5;
+    background: var(--bg-deep);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .lifestyle-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .lifestyle-grid figure:hover img {
+    transform: scale(1.04);
+  }
+
+  .lifestyle-grid figcaption {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* For categories with only 1 or 2 images — center them */
+  .lifestyle-grid.single {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+  .lifestyle-grid.double {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 900px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 4rem 2.5rem 3rem;
+    border-top: 1px solid var(--rule);
+    max-width: 1400px;
+    margin: 6rem auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+  footer a:hover { color: var(--ink); }
+
+  /* ---------- Reveal ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(.2,.8,.2,1), transform 1s cubic-bezier(.2,.8,.2,1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 860px) {
+    .nav { padding: 1.25rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    .nav-links .nav-clock { display: none; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .category { padding: 3rem 1.5rem; }
+    .category-header { margin-bottom: 2rem; }
+    .lifestyle-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .lifestyle-grid.double,
+    .lifestyle-grid.single {
+      grid-template-columns: 1fr;
+    }
+    footer {
+      padding: 2.5rem 1.5rem 2rem;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-top: 3rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-mark">Danielle Malingue</a>
+  <div class="nav-links">
+    <span class="nav-clock">LA --:--</span>
+    <a href="index.html#work">Work</a>
+    <a href="lifestyle.html" class="current">Lifestyle</a>
+    <a href="about.html">About</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- =========== HERO =========== -->
+<section class="hero">
+  <div class="hero-label reveal">Lifestyle · Range</div>
+  <h1 class="reveal">Out of <em>studio</em>.</h1>
+  <p class="hero-intro reveal">
+    Reference material across categories — swim, streetwear, lifestyle, on location. Demonstrating range beyond the main book.
+  </p>
+</section>
+
+<!-- =========== CATEGORY 01 — SWIM =========== -->
+<section class="category reveal">
+  <div class="category-header">
+    <div>
+      <div class="category-label">01 — Swim &amp; Resort</div>
+      <h2 class="category-title">Swim, beach, resort.</h2>
+    </div>
+    <div class="category-meta">Laguna · Los Angeles · 2024</div>
+  </div>
+
+  <div class="lifestyle-grid single">
+    <figure>
+      <div class="image-wrap">
+        <!-- SWAP: replace with danielle-malingue-swim-laguna-beach.webp -->
+        <img src="https://picsum.photos/seed/swim-laguna/1000/1250" alt="Danielle Malingue swim reference, Laguna Beach 2024" />
+      </div>
+      <figcaption>Swim · Laguna Beach · 2024</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- =========== CATEGORY 02 — STREETWEAR =========== -->
+<section class="category reveal">
+  <div class="category-header">
+    <div>
+      <div class="category-label">02 — Streetwear &amp; Lifestyle</div>
+      <h2 class="category-title">Streetwear &amp; everyday.</h2>
+    </div>
+    <div class="category-meta">Downtown LA · 2024</div>
+  </div>
+
+  <div class="lifestyle-grid single">
+    <figure>
+      <div class="image-wrap">
+        <!-- SWAP: replace with danielle-malingue-streetwear-downtown-la.webp -->
+        <img src="https://picsum.photos/seed/streetwear-la/1000/1250" alt="Danielle Malingue streetwear reference, Downtown LA 2024" />
+      </div>
+      <figcaption>Streetwear · Downtown LA · 2024</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- =========== CATEGORY 03 — TEMPLATE (duplicate this to add more) =========== -->
+<!--
+<section class="category reveal">
+  <div class="category-header">
+    <div>
+      <div class="category-label">03 — Beauty &amp; Close-up</div>
+      <h2 class="category-title">Beauty.</h2>
+    </div>
+    <div class="category-meta">Location · Year</div>
+  </div>
+
+  <div class="lifestyle-grid">
+    <figure>
+      <div class="image-wrap">
+        <img src="images/danielle-malingue-beauty-1.webp" alt="..." />
+      </div>
+      <figcaption>Beauty · Location · Year</figcaption>
+    </figure>
+    <figure>
+      <div class="image-wrap">
+        <img src="images/danielle-malingue-beauty-2.webp" alt="..." />
+      </div>
+      <figcaption>Beauty · Location · Year</figcaption>
+    </figure>
+    <figure>
+      <div class="image-wrap">
+        <img src="images/danielle-malingue-beauty-3.webp" alt="..." />
+      </div>
+      <figcaption>Beauty · Location · Year</figcaption>
+    </figure>
+  </div>
+</section>
+-->
+
+<!-- =========== FOOTER =========== -->
+<footer>
+  <span>© 2026 Danielle Malingue</span>
+  <span>Los Angeles · CA</span>
+</footer>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // LA clock
+  function tickClock() {
+    const now = new Date();
+    const t = now.toLocaleTimeString('en-US', {
+      timeZone: 'America/Los_Angeles',
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    document.querySelectorAll('.nav-clock').forEach(el => el.textContent = `LA ${t}`);
+  }
+  tickClock();
+  setInterval(tickClock, 1000 * 30);
+
+  // Custom cursor
+  const cursor = document.querySelector('.cursor');
+  const isTouch = matchMedia('(hover: none)').matches || window.innerWidth < 860;
+  if (cursor && !isTouch) {
+    document.body.classList.add('has-cursor');
+    let mx = 0, my = 0, cx = 0, cy = 0;
+    document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
+    function loop() {
+      cx += (mx - cx) * 0.22;
+      cy += (my - cy) * 0.22;
+      cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(loop);
+    }
+    loop();
+    const big = document.querySelectorAll('figure, .nav-mark');
+    big.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+    });
+    const small = document.querySelectorAll('a:not(.nav-mark), button');
+    small.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('text'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('text'));
+    });
+  }
+</script>
+
+</body>
+</html>
